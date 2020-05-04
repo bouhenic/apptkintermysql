@@ -11,8 +11,6 @@ class Interface(Frame):
         Frame.__init__(self, fenetre, width=768, height=576, **kwargs)
         self.pack(fill=BOTH)
 
-
-
         # Création de nos widgets
         self.message = Label(self, text="Choisissez votre requête")
         self.message.pack()
