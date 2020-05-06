@@ -22,7 +22,7 @@ class Interface(Frame):
         self.ligne_port.place(x=60, y=50)
 
         self.bouton_setip = Button(self, highlightbackground='#3E4149', text="CONNEXION", command=self.setip)
-        self.bouton_setip.place(x=270, y=10)
+        self.bouton_setip.place(x=270, y=30)
 
         # Création de nos widgets
         self.message = Label(self, text="Choisissez votre requête")
