@@ -27,10 +27,13 @@ class Bdd:
                     result = cursor.fetchall()
 
                     for row in result:
+                        liste = []
+                        liste.append(str(row[0]))
+                        liste.append(str(row[1]))
+                        liste.append(str(row[2]))
+                        #temp=str(row[2])
 
-                        temp=str(row[2])
-
-                        return temp
+                        return liste
 
                 except:
                     print("Oops! Something wrong")
@@ -98,6 +101,36 @@ class Bdd:
 
             except:
                 print("Oops! Something wrong")
+
+        connection.commit()
+        connection.close()
+
+    def selectById(self,Id):
+
+        connection = pymysql.connect(
+            host=self.host,
+            port=self.port,
+            user=self.user,
+            password=self.password,
+            db=self.db
+        )
+
+        with connection.cursor() as cursor:
+                sql = f"SELECT * FROM `TEMPERATURE` WHERE ID={Id} LIMIT 1"
+                try:
+                    cursor.execute(sql)
+                    result = cursor.fetchall()
+
+                    for row in result:
+                        liste = []
+                        liste.append(str(row[0]))
+                        liste.append(str(row[1]))
+                        liste.append(str(row[2]))
+
+                        return liste
+
+                except:
+                    print("Oops! Something wrong")
 
         connection.commit()
         connection.close()
